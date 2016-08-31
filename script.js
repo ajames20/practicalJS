@@ -89,12 +89,12 @@ var view = {
         todoTextWithCompletion = '( ) ' + todo.todoText;
       }
 
+      todoLi.id = i;
       todoLi.textContent = todoTextWithCompletion;
       todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
     }
   },
-
   createDeleteButton: function() {
     var deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -102,3 +102,9 @@ var view = {
     return deleteButton;
   }
 };
+
+var todosUl = document.querySelector('ul');
+
+todosUl.addEventListener('click', function(event) {
+  console.log(event.target.parentNode.id);
+});
